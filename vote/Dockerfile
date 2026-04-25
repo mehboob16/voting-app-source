@@ -1,6 +1,9 @@
 # base defines a base stage that uses the official python runtime base image
 FROM python:3.11-slim AS base
 
+LABEL maintainer="Mehboob Ali"
+
+
 # Add curl for healthcheck
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl && \
