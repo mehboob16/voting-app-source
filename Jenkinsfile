@@ -17,9 +17,9 @@ pipeline {
             steps {
                 script {
                     echo "Building Images with tag ${IMAGE_TAG}..."
-                    sh "docker build -t ${DOCKERHUB_USER}/vote:${IMAGE_TAG} ./vote"
-                    sh "docker build -t ${DOCKERHUB_USER}/result:${IMAGE_TAG} ./result"
-                    sh "docker build -t ${DOCKERHUB_USER}/worker:${IMAGE_TAG} ./worker"
+                    sh "DOCKER_BUILDKIT=1 docker build -t ${DOCKERHUB_USER}/vote:${IMAGE_TAG} ./vote"
+                    sh "DOCKER_BUILDKIT=1 docker build -t ${DOCKERHUB_USER}/result:${IMAGE_TAG} ./result"
+                    sh "DOCKER_BUILDKIT=1 docker build -t ${DOCKERHUB_USER}/worker:${IMAGE_TAG} ./worker"
                 }
             }
         }
